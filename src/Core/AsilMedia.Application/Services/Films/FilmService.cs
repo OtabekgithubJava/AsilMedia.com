@@ -1,6 +1,7 @@
 ﻿using AsilMedia.Application.Abstractions.Repositories;
 using AsilMedia.Application.DataTransferObjects;
 using AsilMedia.Domain.Entities;
+using Mapster;
 
 namespace AsilMedia.Application.Services.Films
 {
@@ -41,6 +42,7 @@ namespace AsilMedia.Application.Services.Films
 
                 ///...
             };
+            film = filmDTO.Adapt<Film>();
 
             return await _filmRepository.UpdateAsync(film, id);
         }
